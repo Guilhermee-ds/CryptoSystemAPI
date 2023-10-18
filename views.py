@@ -3,7 +3,7 @@ from services import UserService
 from schemas import UserCreateInput
 
 
-user_router = APIRouter(perfix='/user')
+user_router = APIRouter(prefix='/user')
 assets_router = APIRouter(prefix='/assets')
 
 @user_router.post('/create')
