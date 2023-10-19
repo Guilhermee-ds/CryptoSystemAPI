@@ -3,5 +3,5 @@ from pydantic import BaseModel
 class UserCreateInput(BaseModel):
     name: str
 
-class Standard(BaseModel):
+class StandardOutput(BaseModel):
     message:str
