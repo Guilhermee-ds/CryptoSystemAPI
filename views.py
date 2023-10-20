@@ -1,12 +1,12 @@
 from fastapi import APIRouter
 from services import UserService
-from schemas import UserCreateInput, StandardOutput
+from schemas import UserCreateInput, StandardOutput, ErrorOutput
 
 
 user_router = APIRouter(prefix='/user')
 assets_router = APIRouter(prefix='/assets')
 
-@user_router.post('/create', response_model=StandardOutput)
+@user_router.post('/create',description="this is my documentation for using my api created with Python and FastAPI" ,response_model=StandardOutput, responses={400:{'model':ErrorOutput}})
 async def user_create(user_input: UserCreateInput):
     try:
        await UserService.create_user(name=user_input.name)
