@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 class UserCreateInput(BaseModel):
     name: str
@@ -12,3 +13,20 @@ class StandardOutput(BaseModel):
 
 class ErrorOutput(BaseModel):
     detail:str
+
+
+class Favorite(BaseModel):
+    id: int
+    symbol: str
+    user_id: int
+
+    class Config:
+        orm_mode: True
+
+class UserListOutout(BaseModel):
+    id: int
+    name: str
+    favorites: List[Favorite]
+
+    class Config:
+        orm_mode: True

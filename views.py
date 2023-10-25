@@ -1,10 +1,12 @@
+from typing import List
 from fastapi import APIRouter, HTTPException
 from services import UserService, FavoriteService
 
 from schemas import (UserCreateInput, 
                      StandardOutput,
                      ErrorOutput,
-                     UserFavoriteAddInput
+                     UserFavoriteAddInput, 
+                     UserListOutout,
                      )
 
 
@@ -19,6 +21,8 @@ async def user_create(user_input: UserCreateInput):
     except Exception as error:
         raise HTTPException(400, detail= str(error))
     
+
+    
 @user_router.delete('/delete/{user_id}',response_model=StandardOutput, responses={400:{'model':ErrorOutput}})
 async def user_delete(user_id:int):
     try:
@@ -26,6 +30,8 @@ async def user_delete(user_id:int):
        return StandardOutput(message="OK")
     except Exception as error:
         raise HTTPException(400, detail= str(error))
+    
+
 
 @user_router.post('/favorite/add',response_model=StandardOutput, responses={400:{'model':ErrorOutput}})
 async def user_favorite_add(favorite_add: UserFavoriteAddInput):
@@ -34,10 +40,20 @@ async def user_favorite_add(favorite_add: UserFavoriteAddInput):
        return StandardOutput(message="OK")
     except Exception as error:
         raise HTTPException(400, detail= str(error))
+    
+
 @user_router.delete('/favorite/remove/{user_id}',response_model=StandardOutput, responses={400:{'model':ErrorOutput}})
 async def user_favorite_remove(user_id:int, symbol:str):
     try:
        await FavoriteService.remove_favorite(user_id=user_id, symbol=symbol)
        return StandardOutput(message="OK")
+    except Exception as error:
+        raise HTTPException(400, detail= str(error))
+    
+
+@user_router.get('/list',response_model=List[UserListOutout], responses={400:{'model':ErrorOutput}})
+async def user_list():
+    try:
+        return await UserService.list_user()
     except Exception as error:
         raise HTTPException(400, detail= str(error))
