@@ -10,6 +10,7 @@ sqlalchemy = "*"
 asyncpg = "*"
 python-dotenv = "*"
 aiohttp = "*"
+requests = "*"
 
 [dev-packages]
 
