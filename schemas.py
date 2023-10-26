@@ -30,3 +30,9 @@ class UserListOutout(BaseModel):
 
     class Config:
         orm_mode: True
+
+
+class DaySummaryOutput(BaseModel):
+    highest: float
+    lowest: float
+    symbol: str
