@@ -3,7 +3,8 @@
 
 
 
-Este projeto consiste num sistema de mercado financeiro onde as pessoas guardam as criptomoedas de que gostame consultam a maxima e minima do dia anteriora e faz uma comparação com o dia atual, Esse projeto eu crio uma API e consulto outra API para coletar o valor das Crypto Moedas no mercado.
+
+Este projeto é um sistema de mercado financeiro que permite aos usuários armazenar e consultar as criptomoedas de sua preferência. O sistema suporta as principais criptomoedas do mercado, como **Bitcoin**, **Ethereum**, entre outras. Para isso, eu desenvolvi uma API que se comunica com outra API externa que fornece os valores e as variações de preço das criptomoedas entre o dia anterior e o dia atual.
 
 ## Ferramentas
 
