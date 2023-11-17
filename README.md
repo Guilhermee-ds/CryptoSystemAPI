@@ -20,7 +20,7 @@ Este projeto é um sistema de mercado financeiro que permite aos usuários armaz
 
 ## Dependencias
 * Docker
-* Docker-compse
+* Docker-Composer
 * Python >= 3.6
 * Pipenv
 
